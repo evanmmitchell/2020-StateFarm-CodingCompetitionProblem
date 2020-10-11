@@ -293,4 +293,48 @@ public class CodingCompCsvUtil {
 		return new ArrayList<Customer>(qualifiedCustomers);
 	}
 
+	/*
+	 * getPossibleVendorsForClaim() -- Return a list of customers who’ve filed a claim within the last <numberOfMonths> (inclusive).
+	 * @param filePath -- Path to file being read in.
+	 * @param claimId -- ID of an open claim.
+	 * @return -- List of vendors within the area of the claim.
+	 */
+	public List<Vendor> getPossibleVendorsForClaim(Map<String,String> csvFilePaths, int claimId) {
+		List<Claim> claims = readCsvFile(csvFilePaths.get("claimList"), Claim.class);
+		List<Customer> customers = readCsvFile(csvFilePaths.get("customerList"), Customer.class);
+		List<Vendor> vendors = readCsvFile(csvFilePaths.get("vendorList"), Vendor.class);
+		List<Vendor> qualifiedVendors = new ArrayList<Vendor>();
+		for (Claim claim : claims) {
+			if (claim.getClaimId() == claimId && !claim.getClosed()) {
+				for (Customer customer : customers) {
+					if (claim.getCustomerId() == customer.getCustomerId()) {
+						for (Vendor vendor : vendors) {
+							if (vendor.getArea() == customer.getArea()) {
+								qualifiedVendors.add(vendor);
+							}
+						}
+					}
+				}
+			}
+		}
+		return qualifiedVendors;
+	}
+
+	/*
+	 * countClaimsOpenForMonths() -- Return the number of claims open for a given number of months.
+	 * @param filePath -- Path to file being read in.
+	 * @param monthsOpen -- Number of months a policy has been open.
+	 * @return -- Number claims open for <numberOfMonths>.
+	 */
+	public int countClaimsOpenForMonths(String filePath, int monthsOpen) {
+		List<Claim> claims = readCsvFile(filePath, Claim.class);
+		int result = 0;
+		for (Claim claim : claims) {
+			if (claim.getMonthsOpen() == monthsOpen && !claim.getClosed()) {
+				result++;
+			}
+		}
+		return result;
+	}
+
 }
