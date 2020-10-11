@@ -294,7 +294,7 @@ public class CodingCompCsvUtil {
 	}
 
 	/*
-	 * getPossibleVendorsForClaim() -- Return a list of customers who’ve filed a claim within the last <numberOfMonths> (inclusive).
+	 * getPossibleVendorsForClaim() -- Return a list of vendors in the area of a given claim.
 	 * @param filePath -- Path to file being read in.
 	 * @param claimId -- ID of an open claim.
 	 * @return -- List of vendors within the area of the claim.

@@ -2,7 +2,9 @@ Your team (name of each individual participating): Evan Mitchell and Li Ying (Me
 How many JUnits were you able to get to pass? 10/10
 
 Document and describe any enhancements included to help the judges properly grade your submission.
-	1. getPossibleVendorsForClaim()
+	1. Add function getPossibleVendorsForClaim()
+	2. Graph number of claims open for n months (run Gui.java)
+	3. Graph agent count in area i (run Gui.java)
 
 
 Feedback for the coding competition?  Things you would like to see in future events?
