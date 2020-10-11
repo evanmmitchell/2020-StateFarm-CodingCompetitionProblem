@@ -7,7 +7,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class Customer {
+public class Customer{
 	private int customerId;
 	private String firstName;
 	private String lastName;
@@ -24,4 +24,67 @@ public class Customer {
 	private short yearsOfService;
 	private Integer vehiclesInsured;
 
+	public Customer(int customerId,	String firstName,	String lastName, int age, String area, int agentId, short agentRating, String primaryLanguage, List<Dependent> dependents, boolean homePolicy, boolean autoPolicy, boolean rentersPolicy,	String totalMonthlyPremium,	short yearsOfService,	Integer vehiclesInsured) {
+		this.customerId = customerId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.age = age;
+		this.area = area;
+		this.agentId = agentId;
+		this.agentRating = agentRating;
+		this.primaryLanguage = primaryLanguage;
+		this.dependents = dependents;
+		this.homePolicy = homePolicy;
+		this.autoPolicy = autoPolicy;
+		this.rentersPolicy = rentersPolicy;
+		this.totalMonthlyPremium = totalMonthlyPremium;
+		this.yearsOfService = yearsOfService;
+		this.vehiclesInsured = vehiclesInsured;
+	}
+
+	public int getCustomerId() {
+		return customerId;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public int getAge() {
+		return age;
+	}
+	public String getArea() {
+		return area;
+	}
+	public int getAgentId() {
+		return agentId;
+	}
+	public short getAgentRating() {
+		return agentRating;
+	}
+	public String getPrimaryLanguage() {
+		return primaryLanguage;
+	}
+	public List<Dependent> getDependents() {
+		return dependents;
+	}
+	public boolean getHomePolicy() {
+		return homePolicy;
+	}
+	public boolean getAutoPolicy() {
+		return autoPolicy;
+	}
+	public boolean getRentersPolicy() {
+		return rentersPolicy;
+	}
+	public String getTotalMonthlyPremium() {
+		return totalMonthlyPremium;
+	}
+	public short getYearsOfService() {
+		return yearsOfService;
+	}
+	public Integer getVehiclesInsured() {
+		return vehiclesInsured;
+	}
 }
